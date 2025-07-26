@@ -2,40 +2,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Airport Codes Quiz</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
+    }
+
+    body {
       background: url('background.jpg') no-repeat center center fixed;
       background-size: cover;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       color: #fff;
-      text-align: center;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+    }
+
+    .content-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .container {
-      padding: 40px 20px;
       background: rgba(0, 0, 0, 0.3);
-      max-width: 600px;
-      margin: 80px auto;
       border-radius: 20px;
-    }
-
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 1.2em;
-      margin-bottom: 30px;
+      padding: 40px 20px;
+      max-width: 600px;
+      width: 100%;
+      margin: auto;
     }
 
     .store-button {
@@ -53,22 +52,30 @@
     }
 
     footer {
+      text-align: center;
       padding: 20px;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: underline;
       font-size: 0.9em;
     }
   </style>
 </head>
 <body>
-<!-- Optional container content above -->
-  <div class="container">
-    <!-- You can add a logo or heading here if desired -->
+
+  <div class="content-wrapper">
+    <div class="container">
+      <!-- Optional logo or intro text could go here -->
+    </div>
   </div>
 
   <footer>
     <a class="store-button" href="https://apps.apple.com/gb/app/airport-codes-quiz/id6748875659" target="_blank">
       Download on the App Store
     </a>
-    <p><a href="app-ads.txt" style="color: #fff;">app-ads.txt</a></p>
+    <p><a href="app-ads.txt">app-ads.txt</a></p>
   </footer>
 
 </body>
