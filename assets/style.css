@@ -215,6 +215,7 @@ a:focus-visible, .badge:focus-visible {
 .prose { max-width: 760px; margin: 24px auto 56px; }
 .prose h1 { font-size: clamp(1.8rem, 5vw, 2.4rem); line-height: 1.15; margin: 0 0 6px; }
 .prose h2 { font-size: 1.2rem; margin: 28px 0 8px; }
+.prose h3 { font-size: 1.02rem; margin: 20px 0 6px; }
 .prose .updated { color: var(--ink-soft); margin: 0 0 18px; }
 
 /* Footer */
