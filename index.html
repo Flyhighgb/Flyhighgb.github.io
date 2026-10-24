@@ -22,7 +22,10 @@
 
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-  <meta name="theme-color" content="#7fd3fb">
+  <meta name="theme-color" content="#0b1b33">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap">
   <link rel="stylesheet" href="/assets/style.css">
 
   <!-- Google AdSense (Auto ads are placed by AdSense once the site is approved) -->
@@ -63,20 +66,24 @@
         <span>Amateurgames1</span>
       </a>
       <nav class="site-nav" aria-label="Main">
-        <a href="/airport-codes-quiz">Airport Codes</a>
-        <a href="/index1">Airline Tails</a>
+        <a class="nav-link" href="/airport-codes-quiz">Airport Codes</a>
+        <a class="nav-link" href="/index1">Airline Tails</a>
+        <a class="nav-cta" href="/#apps">Get the apps</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero wrap">
-      <h1>Think you know airports?</h1>
-      <p class="lead">Free, fun aviation quiz games for iPhone. Learn the three-letter codes, spot the airline from its tail, and beat your high score.</p>
+    <section class="hero">
+      <div class="wrap">
+        <p class="eyebrow">Now boarding &middot; Free on iPhone</p>
+        <h1>Think you know airports?</h1>
+        <p class="lead">Free, fun aviation quiz games for iPhone. Learn the three-letter codes, spot the airline from its tail, and beat your high score.</p>
+      </div>
     </section>
 
-    <section class="apps wrap" aria-label="Our apps">
-      <article class="app-card" id="airport-codes-quiz">
+    <section class="apps wrap" id="apps" aria-label="Our apps">
+      <article class="app-card accent-sky" id="airport-codes-quiz">
         <header>
           <img class="app-icon" src="/assets/favicon.svg" alt="Airport Codes Quiz icon" width="84" height="84">
           <div>
@@ -84,6 +91,13 @@
             <p class="tagline">Learn IATA airport codes the fun way</p>
           </div>
         </header>
+        <div class="card-actions">
+          <a class="badge" href="https://apps.apple.com/gb/app/airport-codes-quiz/id6748875659" aria-label="Download Airport Codes Quiz on the App Store">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+            <span><small>Download on the</small><strong>App Store</strong></span>
+          </a>
+          <a class="more-link" href="/airport-codes-quiz">More about Airport Codes Quiz</a>
+        </div>
         <p>Is LHR Heathrow or Gatwick? What about JFK, CDG or HND? Airport Codes Quiz turns the codes on your boarding pass into a quick, satisfying game. It's great for frequent flyers, aviation fans and student pilots.</p>
         <ul class="features">
           <li>1,000 randomised multiple-choice questions</li>
@@ -92,16 +106,9 @@
           <li>Learn Codes browser to study before you play</li>
           <li>Cartoon graphics and confetti when you finish a round</li>
         </ul>
-        <div class="card-actions">
-          <a class="badge" href="https://apps.apple.com/gb/app/airport-codes-quiz/id6748875659" aria-label="Download Airport Codes Quiz on the App Store">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
-            <span><small>Download on the</small><strong>App Store</strong></span>
-          </a>
-          <a class="more-link" href="/airport-codes-quiz">More about Airport Codes Quiz</a>
-        </div>
       </article>
 
-      <article class="app-card" id="airline-tails-quiz">
+      <article class="app-card accent-teal" id="airline-tails-quiz">
         <header>
           <img class="app-icon" src="/assets/airline-tails-icon.jpg" alt="Airline Tails Quiz icon" width="84" height="84" loading="lazy">
           <div>
@@ -109,13 +116,6 @@
             <p class="tagline">Guess the airline from its tail</p>
           </div>
         </header>
-        <p>Every airline paints its tail differently. See how many you can recognise, then switch to the Europe or USA airport code quizzes for a change of pace.</p>
-        <ul class="features">
-          <li>Three modes: Airline Tails, Europe Airport Codes and USA Airport Codes</li>
-          <li>Hundreds of questions, shuffled every time you play</li>
-          <li>Big, easy-to-tap answer buttons and instant scoring</li>
-          <li>Works offline</li>
-        </ul>
         <div class="card-actions">
           <a class="badge" href="https://apps.apple.com/gb/app/airlinetailsquiz/id6751116479" aria-label="Download Airline Tails Quiz on the App Store">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
@@ -123,6 +123,13 @@
           </a>
           <a class="more-link" href="/index1">More about Airline Tails Quiz</a>
         </div>
+        <p>Every airline paints its tail differently. See how many you can recognise, then switch to the Europe or USA airport code quizzes for a change of pace.</p>
+        <ul class="features">
+          <li>Three modes: Airline Tails, Europe Airport Codes and USA Airport Codes</li>
+          <li>Hundreds of questions, shuffled every time you play</li>
+          <li>Big, easy-to-tap answer buttons and instant scoring</li>
+          <li>Works offline</li>
+        </ul>
       </article>
     </section>
   </main>
@@ -133,7 +140,7 @@
       <nav aria-label="Footer">
         <a href="/privacy">Privacy policy</a>
         <a href="/support">Support</a>
-        <a href="/app-ads.txt">app-ads.txt</a>
+        <a href="mailto:hello@amateurgames1.com">hello@amateurgames1.com</a>
       </nav>
     </div>
   </footer>
