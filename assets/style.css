@@ -79,14 +79,29 @@ a:focus-visible, .badge:focus-visible {
   flex: none;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.15rem;
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
   color: #fff;
   text-decoration: none;
 }
-.brand svg { width: 34px; height: 34px; }
+/* The "1" sits in a yellow tag, like a gate number */
+.brand-gate {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 30px;
+  padding: 0 6px;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--navy);
+  background: var(--yellow);
+  border-radius: 6px;
+}
 .site-nav { display: flex; align-items: center; gap: 22px; font-size: 0.95rem; }
 .site-nav a { color: var(--on-navy); text-decoration: none; font-weight: 500; white-space: nowrap; }
 .site-nav a:hover, .site-nav a[aria-current="page"] { color: #fff; }
@@ -261,9 +276,11 @@ a:focus-visible, .badge:focus-visible {
 .pass-main .app-icon { width: 72px; height: 72px; border-radius: 17px; }
 .pass h3 { margin: 0; font-size: 1.4rem; line-height: 1.2; letter-spacing: -0.01em; }
 .pass-list { list-style: none; counter-reset: pass; padding: 0; margin: 0; }
-.pass-list li { counter-increment: pass; display: flex; gap: 12px; margin-bottom: 8px; }
+.pass-list li { counter-increment: pass; position: relative; padding-left: 34px; margin-bottom: 8px; }
 .pass-list li::before {
   content: "0" counter(pass);
+  position: absolute;
+  left: 0;
   font-family: var(--font-mono);
   font-weight: 800;
   color: var(--dot);
@@ -416,8 +433,7 @@ a:focus-visible, .badge:focus-visible {
 @media (max-width: 480px) {
   .pass-main, .panel { padding: 22px; }
   .flap { width: 64px; height: 82px; font-size: 3.1rem; }
-  .brand span { font-size: 1.05rem; }
-  .brand svg, .brand img { width: 30px; height: 30px; }
+  .brand { font-size: 1.15rem; }
   .hero { padding-top: 28px; }
 }
 
