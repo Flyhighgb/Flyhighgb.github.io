@@ -570,3 +570,65 @@ a:focus-visible, .badge:focus-visible {
   font-weight: 700;
   text-decoration: none;
 }
+
+/* Quick Play (/play) */
+.play-pick { display: flex; flex-direction: column; gap: 14px; }
+.play-pick .eyebrow { margin: 0; }
+.play-pick[hidden] { display: none; }
+.hero h1.play-title { margin: 0; font-size: clamp(2.2rem, 7vw, 3rem); }
+.play-intro { margin: 0 0 6px; color: var(--on-navy); }
+.play-regions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.play-region {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-height: 84px;
+  padding: 14px 16px;
+  text-align: left;
+  color: #fff;
+  background: var(--navy-2);
+  border: 2px solid #24365a;
+  border-radius: 14px;
+  cursor: pointer;
+  font: inherit;
+}
+.play-region:hover { border-color: var(--yellow); }
+.play-region:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
+.play-region-all { grid-column: 1 / -1; background: var(--yellow); border-color: var(--yellow); color: var(--navy); }
+.play-region-name { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; }
+.play-region-best { font-size: 0.82rem; color: #8798b3; }
+.play-region-all .play-region-best { color: #5a4500; }
+.play-pips { grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 4px; }
+.play-verdict { margin: 0; font-weight: 600; }
+.play-best { margin: 0; font-size: 0.9rem; color: var(--ink-soft); }
+.play-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.play-actions .quiz-next { min-height: 52px; font-size: 1rem; }
+.play-secondary {
+  min-height: 52px;
+  border-radius: 999px;
+  border: 2px solid #3a4d6b;
+  background: transparent;
+  color: #fff;
+  font: 600 1rem var(--font-body);
+  cursor: pointer;
+}
+.play-secondary:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
+.play-missed[hidden] { display: none; }
+.play-missed h2 { margin: 0 0 8px; font-size: 1.05rem; color: #fff; }
+.play-missed ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.play-missed li { display: flex; align-items: center; gap: 12px; color: var(--on-navy); font-size: 0.95rem; }
+.play-missed b {
+  flex: none;
+  min-width: 52px;
+  text-align: center;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: var(--navy-2);
+  font-family: var(--font-mono);
+  font-weight: 800;
+  color: var(--yellow);
+}
+.daily-countdown a { color: var(--yellow); }
+.daily-promo-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.daily-promo a.daily-promo-alt { background: transparent; color: var(--navy); border: 2px solid var(--navy); }
