@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Departure: a free daily airport code puzzle | Amateurgames1</title>
+  <meta name="description" content="Five airport codes, one go a day. Name the airport behind each three-letter code, keep your streak going and share your score. Free, no sign-up.">
+  <link rel="canonical" href="https://amateurgames1.com/daily">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Amateurgames1">
+  <meta property="og:title" content="Daily Departure: five airport codes a day">
+  <meta property="og:description" content="Can you name all five airports from their codes? A new puzzle every day. Free, no sign-up.">
+  <meta property="og:url" content="https://amateurgames1.com/daily">
+  <meta property="og:image" content="https://amateurgames1.com/assets/og-airport-codes.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#0b1b33">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap">
+  <link rel="stylesheet" href="/assets/style.css">
+
+  <!-- Google AdSense (Auto ads are placed by AdSense once the site is approved) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3238867925400297" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Game",
+    "name": "Daily Departure",
+    "description": "A free daily puzzle: name the airports behind five three-letter IATA codes.",
+    "url": "https://amateurgames1.com/daily",
+    "publisher": { "@type": "Organization", "name": "Amateurgames1", "url": "https://amateurgames1.com/" }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/">
+        <span class="brand-name">amateurgames</span><span class="brand-gate">1</span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a class="nav-link nav-keep" href="/daily" aria-current="page">Daily</a>
+        <a class="nav-link" href="/airport-codes-quiz">Airport Codes</a>
+        <a class="nav-link" href="/index1">Airline Tails</a>
+        <a class="nav-cta" href="/#apps">Get the apps</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero daily-hero">
+      <div class="wrap">
+        <div class="daily" id="daily">
+          <div class="daily-top">
+            <p class="eyebrow">Daily Departure <span id="daily-num"></span></p>
+            <p class="daily-meta"><span id="daily-date"></span> &middot; Streak <strong id="daily-streak">0</strong></p>
+          </div>
+
+          <div class="daily-play" id="daily-play">
+            <div class="daily-pips" id="daily-pips" aria-hidden="true"></div>
+            <div class="daily-board">
+              <p class="daily-step" id="daily-step">Now boarding</p>
+              <div class="flaps" id="daily-flaps" role="img" aria-label="Airport code"></div>
+              <p class="quiz-ask">Which airport is this?</p>
+            </div>
+            <div class="quiz-options" id="daily-options"></div>
+            <p class="daily-feedback" id="daily-feedback" aria-live="polite" hidden></p>
+            <button type="button" class="quiz-next daily-next" id="daily-next" hidden>Next flight</button>
+            <noscript><p class="daily-feedback">Daily Departure needs JavaScript turned on to play.</p></noscript>
+          </div>
+
+          <div class="daily-result" id="daily-result" tabindex="-1" hidden>
+            <div class="daily-pass">
+              <div class="daily-pass-head"><span>Boarding pass</span><span id="daily-pass-num"></span></div>
+              <div class="daily-pass-body">
+                <div class="daily-pass-row">
+                  <div><small>Your score</small><b id="daily-score"></b></div>
+                  <div class="daily-pass-right"><small>Streak</small><b class="daily-pass-streak" id="daily-pass-streak"></b></div>
+                </div>
+                <ol class="daily-grid" id="daily-grid"></ol>
+              </div>
+            </div>
+            <button type="button" class="quiz-next daily-share" id="daily-share">Share my score</button>
+            <p class="daily-share-status" id="daily-share-status" aria-live="polite"></p>
+            <p class="daily-countdown">Next departure in <strong id="daily-countdown"></strong></p>
+            <div class="daily-upsell">
+              <h2>Can't wait until tomorrow?</h2>
+              <p>Practise all 1,000 codes in Airport Codes Quiz, free on iPhone.</p>
+              <a class="daily-upsell-cta" href="https://apps.apple.com/gb/app/airport-codes-quiz/id6748875659">Get the app</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap prose daily-about">
+      <h2>How Daily Departure works</h2>
+      <p>Every day there are five new airport codes to crack. Everyone gets the same five, so you can compare scores with friends. You get one go at each code, and the puzzle changes at midnight UK time.</p>
+      <p>Play every day to build your streak. Your scores are saved in this browser only: there's no account and nothing to sign up for.</p>
+      <h2>What are airport codes?</h2>
+      <p>The three-letter codes on your boarding pass and luggage tag are IATA airport codes. Some are easy, like <strong>LHR</strong> for London Heathrow. Others come from old names, like <strong>ORD</strong> for Chicago O'Hare, which used to be Orchard Field. Most big Canadian airports start with a <strong>Y</strong>.</p>
+      <p>Want more than five a day? <a href="/airport-codes-quiz">Airport Codes Quiz</a> has 50-question rounds from a pool of 1,000 codes.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; 2026 Amateurgames1. Free games for aviation fans.</p>
+      <nav aria-label="Footer">
+        <a href="/privacy">Privacy policy</a>
+        <a href="/support">Support</a>
+        <a href="mailto:hello@amateurgames1.com">hello@amateurgames1.com</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="/assets/daily-airports.js" defer></script>
+  <script src="/assets/daily.js" defer></script>
+</body>
+</html>
