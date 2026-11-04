@@ -618,7 +618,7 @@ a:focus-visible, .badge:focus-visible {
 .play-missed h2 { margin: 0 0 8px; font-size: 1.05rem; color: #fff; }
 .play-missed ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
 .play-missed li { display: flex; align-items: center; gap: 12px; color: var(--on-navy); font-size: 0.95rem; }
-.play-missed b {
+.play-missed a {
   flex: none;
   min-width: 52px;
   text-align: center;
@@ -628,7 +628,117 @@ a:focus-visible, .badge:focus-visible {
   font-family: var(--font-mono);
   font-weight: 800;
   color: var(--yellow);
+  text-decoration: none;
 }
 .daily-countdown a { color: var(--yellow); }
 .daily-promo-links { display: flex; flex-wrap: wrap; gap: 10px; }
 .daily-promo a.daily-promo-alt { background: transparent; color: var(--navy); border: 2px solid var(--navy); }
+
+/* Airport pages (/airports/) */
+.ap-hero { text-align: left; padding-top: 24px; padding-bottom: 56px; }
+.ap-crumbs { font-size: 0.9rem; color: #8798b3; margin-bottom: 28px; }
+.ap-crumbs a { color: var(--on-navy); }
+.ap-hero-row { display: flex; flex-wrap: wrap; align-items: center; gap: 24px 40px; }
+.ap-flaps { justify-content: flex-start; }
+.ap-hero-copy { flex: 1 1 320px; min-width: 0; }
+.ap-hero h1 { font-size: clamp(2.1rem, 6vw, 3.4rem); margin: 0 0 10px; }
+.ap-hero p.lead { margin: 0; }
+.ap-layout { display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-start; padding-top: 32px; padding-bottom: 64px; }
+.ap-main { flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px; }
+.ap-side { flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 22px; }
+.ap-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 0; }
+.ap-facts div { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
+.ap-facts dt { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); }
+.ap-facts dd { margin: 2px 0 0; font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--navy); }
+.ap-panel h2, .ap-faq h2, .ap-quiz h2, .ap-cta h2 { margin: 0 0 8px; font-size: 1.4rem; }
+.ap-panel p { margin: 0 0 12px; }
+.ap-panel p:last-child { margin-bottom: 0; }
+.code-chips { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr)); gap: 10px; }
+.code-chip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.code-chip:hover { border-color: var(--navy); }
+.code-chip b {
+  flex: none;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: var(--navy);
+  color: var(--yellow);
+  font-family: var(--font-mono);
+  font-weight: 800;
+}
+.ap-quiz { background: var(--navy); color: #fff; border-radius: var(--radius); padding: 28px; display: flex; flex-direction: column; gap: 20px; }
+.ap-quiz h2 { color: #fff; }
+.ap-q { display: flex; flex-direction: column; gap: 10px; }
+.ap-q-ask { margin: 0; font-weight: 600; }
+.ap-q-ask span { font-family: var(--font-mono); font-size: 0.8rem; color: var(--yellow); margin-right: 6px; }
+.ap-q-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 8px; }
+.ap-q-opts.is-code { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.ap-q-opts.is-code .quiz-option { justify-content: center; font-family: var(--font-mono); font-weight: 800; font-size: 1.05rem; padding: 0 6px; }
+.ap-q-result { margin: 0; min-height: 1.5em; font-size: 0.95rem; color: var(--on-navy); }
+.ap-quiz-score { margin: 0; font-weight: 600; }
+.ap-quiz-score:empty { display: none; }
+.ap-quiz a { color: var(--yellow); }
+.ap-faq { display: flex; flex-direction: column; gap: 10px; }
+.ap-faq details { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 18px; }
+.ap-faq summary { font-weight: 700; color: var(--navy); cursor: pointer; }
+.ap-faq details p { margin: 8px 0 0; color: var(--ink-soft); }
+.ap-cta-kicker { margin: 0 0 4px; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); }
+.ap-cta p { margin: 0 0 10px; }
+.ap-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 46px;
+  padding: 0 18px;
+  border-radius: 10px;
+  background: var(--navy);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+.ap-search { margin-top: 24px; max-width: 520px; }
+.ap-search label { display: block; margin-bottom: 8px; font-size: 0.9rem; color: var(--on-navy); }
+.ap-search input {
+  width: 100%;
+  height: 56px;
+  padding: 0 18px;
+  border: 2px solid #24365a;
+  border-radius: 14px;
+  background: var(--navy-2);
+  color: #fff;
+  font: 700 1.05rem var(--font-body);
+}
+.ap-search input:focus { outline: 3px solid var(--yellow); outline-offset: 2px; }
+.ap-index { padding-top: 40px; padding-bottom: 64px; }
+.ap-region { margin-bottom: 36px; }
+.ap-region[hidden], .ap-list li[hidden], .ap-none[hidden] { display: none; }
+.ap-region h2 { font-size: 1.5rem; margin: 0 0 14px; }
+.ap-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 10px; }
+.ap-list a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 60px;
+  padding: 8px 12px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.ap-list a:hover { border-color: var(--navy); }
+.ap-list b { flex: none; min-width: 52px; text-align: center; padding: 4px 8px; border-radius: 6px; background: var(--navy); color: var(--yellow); font-family: var(--font-mono); font-weight: 800; }
+.ap-list span { display: flex; flex-direction: column; font-weight: 600; line-height: 1.3; }
+.ap-list small { font-weight: 400; color: var(--ink-soft); font-size: 0.82rem; }
+.ap-none { font-weight: 600; }
+.ap-about { margin: 24px 0 0; max-width: 760px; }
