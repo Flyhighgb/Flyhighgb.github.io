@@ -166,7 +166,8 @@
     var missed = questions.filter(function (q, i) { return picks[i] !== q.name; });
     missed.forEach(function (q) {
       var li = document.createElement("li");
-      var code = document.createElement("b");
+      var code = document.createElement("a");
+      code.href = "/airports/" + q.code.toLowerCase();
       code.textContent = q.code;
       li.appendChild(code);
       li.appendChild(document.createTextNode(q.name + ", " + q.country));
