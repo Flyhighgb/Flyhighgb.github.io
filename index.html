@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Airport Codes Quiz &amp; Airline Tails Quiz | Amateurgames1</title>
-  <meta name="description" content="Free aviation quiz games for iPhone. Learn airport IATA codes with Airport Codes Quiz and test your airline knowledge with Airline Tails Quiz.">
+  <title>Amateurgames1: free airport code games, daily puzzle and quizzes</title>
+  <meta name="description" content="Free airport code games for aviation fans. Play Daily Departure, a new five-code puzzle every day, practise in quick rounds, look up any airport code, and get Airport Codes Quiz and Airline Tails Quiz for iPhone.">
   <link rel="canonical" href="https://amateurgames1.com/">
 
   <!-- Safari shows an "Open / Get" banner for the app on iPhone -->
@@ -12,10 +12,10 @@
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Amateurgames1">
-  <meta property="og:title" content="Airport Codes Quiz: think you know airports?">
-  <meta property="og:description" content="Free iPhone quiz with 1,000 airport code questions. Learn IATA codes and beat your high score.">
+  <meta property="og:title" content="Think you know airports? Free airport code games">
+  <meta property="og:description" content="A new airport code puzzle every day, unlimited practice rounds and the story behind the codes. Free, no sign-up.">
   <meta property="og:url" content="https://amateurgames1.com/">
-  <meta property="og:image" content="https://amateurgames1.com/assets/og-airport-codes.jpg">
+  <meta property="og:image" content="https://amateurgames1.com/assets/og-home.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
@@ -76,66 +76,79 @@
   </header>
 
   <main id="main">
-    <section class="hero hero-split">
+    <section class="hero hero-split home-hero">
       <div class="wrap">
         <div class="hero-copy">
-          <p class="eyebrow">Now boarding &middot; Free on iPhone</p>
+          <p class="eyebrow">Free airport code games &middot; No sign-up</p>
           <h1>Think you know airports?</h1>
-          <p class="lead">Two quick, free quiz games for aviation fans. Crack the three-letter codes, name the airline from its tail, and beat your high score.</p>
-          <p class="hero-apps"><a href="#apps">Get Airport Codes Quiz and Airline Tails Quiz</a></p>
-        </div>
-
-        <div class="quiz-phone" aria-label="Try a sample question">
-          <div class="quiz" id="quiz">
-            <div class="quiz-top">
-              <span>Question <span id="quiz-num">1</span></span>
-              <span>Score <span id="quiz-score">0</span></span>
-            </div>
-            <div class="flaps" id="quiz-code" aria-live="polite">
-              <span class="flap">L</span><span class="flap">H</span><span class="flap">R</span>
-            </div>
-            <p class="quiz-ask" id="quiz-ask">Which airport is this?</p>
-            <div class="quiz-options" id="quiz-options">
-              <button type="button" class="quiz-option"><span>A</span>London Gatwick</button>
-              <button type="button" class="quiz-option" data-right><span>B</span>London Heathrow</button>
-              <button type="button" class="quiz-option"><span>C</span>Manchester</button>
-              <button type="button" class="quiz-option"><span>D</span>Dublin</button>
-            </div>
-            <div class="quiz-result" id="quiz-result" aria-live="polite" hidden>
-              <p id="quiz-feedback"></p>
-              <div class="quiz-result-actions">
-                <a href="#apps">Get the app</a>
-                <button type="button" class="quiz-next" id="quiz-next">Next</button>
-              </div>
-            </div>
-            <p class="quiz-hint" id="quiz-hint">Tap an answer to play</p>
+          <p class="lead">A new airport code puzzle every day, unlimited practice rounds, and the story behind the three letters on your boarding pass.</p>
+          <div class="home-ctas">
+            <a class="home-cta" href="/daily">Play today's puzzle</a>
+            <a class="home-cta home-cta-alt" href="/play">Practice rounds</a>
           </div>
         </div>
+
+        <a class="home-board" id="home-board" href="/daily" aria-label="Play today's Daily Departure">
+          <span class="home-board-head"><span>Daily Departure <span id="home-board-num"></span></span><span>Today's 5</span></span>
+          <ol class="home-board-rows" id="home-board-rows">
+            <li><span class="board-flt">AG1</span><span class="board-code"><span>?</span><span>?</span><span>?</span></span><span class="board-status is-now">BOARDING</span></li>
+            <li><span class="board-flt">AG2</span><span class="board-code"><span>?</span><span>?</span><span>?</span></span><span class="board-status">SCHEDULED</span></li>
+            <li><span class="board-flt">AG3</span><span class="board-code"><span>?</span><span>?</span><span>?</span></span><span class="board-status">SCHEDULED</span></li>
+            <li><span class="board-flt">AG4</span><span class="board-code"><span>?</span><span>?</span><span>?</span></span><span class="board-status">SCHEDULED</span></li>
+            <li><span class="board-flt">AG5</span><span class="board-code"><span>?</span><span>?</span><span>?</span></span><span class="board-status">SCHEDULED</span></li>
+          </ol>
+          <span class="home-board-foot" id="home-board-foot">Same five codes for everyone. Resets at midnight UK time.</span>
+          <span class="home-board-cta" id="home-board-cta">Board now</span>
+        </a>
       </div>
     </section>
 
-    <section class="daily-promo" aria-label="Daily Departure">
-      <div class="wrap">
-        <p><strong>New: Daily Departure.</strong> Five airport codes, one go a day. Can you keep your streak?</p>
-        <span class="daily-promo-links">
-          <a class="daily-promo-alt" href="/play">Practice rounds</a>
-          <a href="/daily">Play today's puzzle</a>
-        </span>
+    <section class="wrap home-gates" aria-labelledby="gates-title">
+      <p class="eyebrow eyebrow-dark">Choose your gate</p>
+      <h2 class="section-title" id="gates-title">Three ways to play, right here in your browser</h2>
+      <div class="gates">
+        <a class="gate-card" href="/daily">
+          <span class="gate-tag gate-a">Gate A1</span>
+          <h3>Daily Departure</h3>
+          <p>Five codes, one go a day. Keep your streak going and share your boarding pass score.</p>
+          <span class="gate-go">Play today's &rarr;</span>
+        </a>
+        <a class="gate-card" href="/play">
+          <span class="gate-tag gate-b">Gate B2</span>
+          <h3>Quick Play</h3>
+          <p>Ten-question rounds as often as you like. Pick Europe, the Americas, Asia &amp; Pacific, the Middle East &amp; Africa, or mix them all.</p>
+          <span class="gate-go">Start a round &rarr;</span>
+        </a>
+        <a class="gate-card" href="/airports/">
+          <span class="gate-tag gate-c">Gate C3</span>
+          <h3>Airports A&ndash;Z</h3>
+          <p>Every major code, why it's called that, and the codes people mix it up with.</p>
+          <span class="gate-go">Browse codes &rarr;</span>
+        </a>
       </div>
     </section>
 
-    <section class="stats" aria-label="At a glance">
-      <div class="wrap">
-        <div><strong>1,000</strong><span>airport code questions</span></div>
-        <div><strong>3</strong><span>game modes in Airline Tails</span></div>
-        <div><strong>0</strong><span>accounts or sign-ups</span></div>
-        <div><strong>Free</strong><span>on iPhone, supported by ads</span></div>
+    <section class="wrap home-search-wrap" aria-labelledby="search-title">
+      <div class="panel home-search-panel">
+        <div class="home-search-copy">
+          <h2 id="search-title">What airport is that code?</h2>
+          <p>Type a three-letter code, a city or a country.</p>
+        </div>
+        <form class="home-search" id="home-search" action="/airports/" method="get" role="search">
+          <label class="visually-hidden" for="home-q">Airport code, city or country</label>
+          <input id="home-q" name="q" type="search" placeholder="e.g. ORD or Chicago" autocomplete="off">
+          <button type="submit">Look up</button>
+        </form>
+        <p class="home-popular">Popular:
+          <a href="/airports/lhr">LHR</a> <a href="/airports/jfk">JFK</a> <a href="/airports/lax">LAX</a> <a href="/airports/cdg">CDG</a> <a href="/airports/dxb">DXB</a> <a href="/airports/hnd">HND</a> <a href="/airports/ord">ORD</a> <a href="/airports/sin">SIN</a> <a href="/airports/yyz">YYZ</a> <a href="/airports/ams">AMS</a>
+        </p>
       </div>
     </section>
 
     <section class="apps-section wrap" id="apps" aria-labelledby="apps-title">
-      <p class="eyebrow eyebrow-dark">Choose your flight</p>
-      <h2 class="section-title" id="apps-title">Two games, one obsession</h2>
+      <p class="eyebrow eyebrow-dark">Take it with you</p>
+      <h2 class="section-title" id="apps-title">The full games, free on iPhone</h2>
+      <p class="section-lead">High scores, a study mode, all 1,000 airport codes and offline play for the flight.</p>
 
       <div class="passes">
         <article class="pass accent-sky" id="airport-codes-quiz">
@@ -201,7 +214,7 @@
 
   <footer class="site-footer">
     <div class="wrap">
-      <p>&copy; 2026 Amateurgames1. Both apps are free and supported by ads.</p>
+      <p>&copy; 2026 Amateurgames1. Free games for aviation fans, supported by ads.</p>
       <nav aria-label="Footer">
         <a href="/airports/">Airports A&ndash;Z</a>
         <a href="/privacy">Privacy policy</a>
@@ -210,6 +223,8 @@
       </nav>
     </div>
   </footer>
-  <script src="/assets/quiz.js" defer></script>
+  <script src="/assets/daily-airports.js" defer></script>
+  <script src="/assets/daily.js" defer></script>
+  <script src="/assets/home.js" defer></script>
 </body>
 </html>

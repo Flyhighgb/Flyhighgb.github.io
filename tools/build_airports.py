@@ -137,7 +137,7 @@ HEAD = """<!DOCTYPE html>
   <meta property="og:title" content="{title}">
   <meta property="og:description" content="{desc}">
   <meta property="og:url" content="https://amateurgames1.com{path}">
-  <meta property="og:image" content="https://amateurgames1.com/assets/og-airport-codes.jpg">
+  <meta property="og:image" content="https://amateurgames1.com/assets/og-home.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
