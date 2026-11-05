@@ -3,9 +3,12 @@
 // Everything is worked out in the browser from the date: no server, no accounts.
 // Progress and streaks are saved in this browser only (localStorage).
 (function () {
-  var root = document.getElementById("daily");
-  var AIRPORTS = window.DAILY_AIRPORTS;
-  if (!root || !AIRPORTS) return;
+  if (!window.DAILY_AIRPORTS) return;
+  // Daily puzzles only use the first 140 airports in the list, so adding more
+  // airports later (for the airport pages and Quick Play) never changes past or
+  // future Daily Departure puzzles.
+  var DAILY_POOL = 140;
+  var AIRPORTS = window.DAILY_AIRPORTS.slice(0, DAILY_POOL);
 
   var PER_DAY = 5;
   var LAUNCH_UTC = Date.UTC(2026, 10, 4); // 4 Nov 2026 is Daily Departure #1
@@ -68,6 +71,12 @@
       };
     });
   }
+
+  // Shared with the home page board (assets/home.js).
+  window.AG1Daily = { dayNumber: dayNumber, puzzleFor: puzzleFor, storeKey: STORE_KEY, secondsToUkMidnight: secondsToUkMidnight };
+
+  var root = document.getElementById("daily");
+  if (!root) return;
 
   // ---------- Saved progress ----------
   function load() {

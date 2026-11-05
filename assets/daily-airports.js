@@ -1,8 +1,9 @@
 // Airport list for Daily Departure: [IATA code, airport name, country, region].
 // Region is used to pick believable wrong answers from the same part of the world.
-// Order matters: the daily puzzles are drawn from this list with a fixed seed,
-// so ADD new airports at the end and never reorder or remove existing ones,
-// or past and future puzzle numbers will change.
+// Order matters: Daily Departure draws its puzzles from the FIRST 140 entries with
+// a fixed seed, so never reorder or remove existing entries. Add new airports at
+// the end: they appear in Quick Play and get an airport page, but don't change
+// the daily puzzles. After editing, run: python3 tools/build_airports.py
 window.DAILY_AIRPORTS = [
   // Europe
   ["LHR", "London Heathrow", "United Kingdom", "eu"],

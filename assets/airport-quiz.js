@@ -51,5 +51,11 @@
       });
       none.hidden = shown !== 0;
     });
+    // Searches from the home page arrive as /airports/?q=...
+    var m = /[?&]q=([^&]*)/.exec(location.search);
+    if (m) {
+      input.value = decodeURIComponent(m[1].replace(/\+/g, " "));
+      input.dispatchEvent(new Event("input"));
+    }
   }
 })();
