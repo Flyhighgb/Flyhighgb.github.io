@@ -52,6 +52,12 @@ STORIES = {
     "YUL": CANADA,
     "YYC": CANADA,
     "YOW": CANADA,
+    "YEG": CANADA,
+    "YWG": CANADA,
+    "YHZ": CANADA,
+    "YQB": CANADA,
+    "YYJ": CANADA,
+    "CVG": "CVG comes from Covington, Kentucky. Cincinnati's main airport is actually across the river from Ohio, in northern Kentucky.",
     "PEK": "PEK comes from Peking, the older English spelling of Beijing.",
     "BOM": "BOM comes from Bombay, Mumbai's name until 1995.",
     "MAA": "MAA comes from Madras, Chennai's name until 1996.",
@@ -63,7 +69,7 @@ STORIES = {
 }
 
 FAQ_ROUTE = {
-    "LON": ["LHR", "LGW", "STN", "LTN", "LCY"],
+    "LON": ["LHR", "LGW", "STN", "LTN", "LCY", "SEN"],
 }
 
 
@@ -175,6 +181,7 @@ FOOT = """
       <p>&copy; 2026 Amateurgames1. Free games for aviation fans.</p>
       <nav aria-label="Footer">
         <a href="/airports/">Airports A&ndash;Z</a>
+        <a href="/guides/">Guides</a>
         <a href="/privacy">Privacy policy</a>
         <a href="/support">Support</a>
         <a href="mailto:hello@amateurgames1.com">hello@amateurgames1.com</a>
@@ -255,7 +262,7 @@ def airport_page(a, airports):
     ]
     if code in FAQ_ROUTE["LON"]:
         faqs.append(("What does LON mean on a ticket?",
-                     "LON is a city code that covers all of London's airports. Booking sites use it to search Heathrow (LHR), Gatwick (LGW), Stansted (STN), Luton (LTN) and London City (LCY) at once."))
+                     "LON is a city code that covers all of London's airports. Booking sites use it to search Heathrow (LHR), Gatwick (LGW), Stansted (STN), Luton (LTN), London City (LCY) and Southend (SEN) at once."))
 
     schema = schema_block({
         "@context": "https://schema.org",
@@ -361,7 +368,7 @@ def index_page(airports):
       <div class="wrap">
         <p class="eyebrow">Airports A&ndash;Z</p>
         <h1>What airport is that code?</h1>
-        <p class="lead">{len(airports)} major airports, the story behind their codes, and the codes people mix them up with.</p>
+        <p class="lead">{len(airports)} airports, the story behind their codes, and the codes people mix them up with.</p>
         <form class="ap-search" role="search" action="#" onsubmit="return false">
           <label for="ap-filter">Search by code, airport or country</label>
           <input id="ap-filter" type="search" placeholder="e.g. ORD, Toronto or Japan" autocomplete="off">
@@ -381,7 +388,7 @@ def index_page(airports):
     parts.append("""      <section class="prose ap-about">
         <h2>About airport codes</h2>
         <p>The three-letter codes on boarding passes and bag tags are IATA airport codes. Some spell out the name, like LHR for London Heathrow. Others come from an old name, like ORD for Chicago O'Hare, which was once Orchard Field. Each page explains the story where there is one.</p>
-        <p>Want to test yourself? Try <a href="/daily">Daily Departure</a> or a round of <a href="/play">Quick Play</a>.</p>
+        <p>For the stories behind the strangest codes, read our <a href="/guides/">guides</a>. Want to test yourself? Try <a href="/daily">Daily Departure</a> or a round of <a href="/play">Quick Play</a>.</p>
       </section>
     </div>
   </main>
