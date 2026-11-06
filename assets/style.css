@@ -306,6 +306,7 @@ a:focus-visible, .badge:focus-visible {
 }
 .accent-sky { --card-accent: var(--sky); --dot: var(--sky); --stub: var(--sky-tint); --stub-line: #b9ddf5; }
 .accent-teal { --card-accent: var(--teal); --dot: var(--teal-ink); --stub: var(--teal-tint); --stub-line: #a8e3dc; }
+.accent-amber { --card-accent: var(--yellow); --dot: #d99a00; --stub: #fff7e0; --stub-line: #f3dc9b; }
 .app-icon {
   width: 84px;
   height: 84px;
@@ -344,7 +345,7 @@ a:focus-visible, .badge:focus-visible {
 }
 .more-link { font-weight: 600; color: var(--navy); }
 
-/* App Store badge */
+/* App Store / Google Play badge */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -376,6 +377,8 @@ a:focus-visible, .badge:focus-visible {
   .detail { grid-template-columns: 1.1fr 0.9fr; }
 }
 .detail > * { min-width: 0; }
+.detail-aside h2 { margin-top: 0; }
+.detail-aside .pass-list { margin-bottom: 0; }
 .detail .app-icon { width: 96px; height: 96px; border-radius: 22px; margin-bottom: 18px; }
 .detail h1 {
   font-size: clamp(2.1rem, 5.5vw, 3.1rem);
