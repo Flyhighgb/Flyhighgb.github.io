@@ -35,6 +35,40 @@ def byline(g):
 
 OUT = ROOT / "guides"
 
+WP = "https://en.wikipedia.org/wiki/"
+IATA_SEARCH = ("IATA: Airline and Airport Code Search", "https://www.iata.org/en/publications/directories/code-search/")
+IATA_CODES = ("IATA: Airline and Location Codes", "https://www.iata.org/en/services/codes/")
+IATA_LOCATIONS = ("IATA: Airport & Location Identifier Database", "https://www.iata.org/en/publications/manuals/airline-airport-location-coding-databases/airport-location-identifier-database/")
+IATA_CCD = ("IATA: City Code Directory", "https://www.iata.org/en/publications/manuals/mileage/city-code-directory-ccd/")
+
+
+def wp(title, slug=None):
+    return (f"Wikipedia: {title}", WP + (slug or title.replace(" ", "_")))
+
+
+IATA_ARTICLE = wp("IATA airport code")
+
+# Sources for each guide, shown at the end of the page. Add one whenever you add a fact.
+SOURCES = {
+    "why-canadian-airports-start-with-y": [IATA_ARTICLE, wp("Toronto Pearson International Airport"), wp("YYZ (song)", "YYZ_(song)"), wp("ICAO airport code")],
+    "airport-codes-from-old-names": [IATA_ARTICLE, wp("O'Hare International Airport"), IATA_SEARCH],
+    "london-airports-codes": [wp("Airports of London"), wp("Heathrow Airport"), wp("Gatwick Airport"), wp("London City Airport")],
+    "why-lax-has-an-x": [IATA_ARTICLE, wp("History of Los Angeles International Airport"), wp("Theme Building")],
+    "iata-and-icao-codes": [IATA_ARTICLE, wp("ICAO airport code"), wp("International Civil Aviation Organization"), IATA_CODES],
+    "codes-that-dodged-a-clash": [IATA_ARTICLE, wp("Dulles International Airport"), wp("Sioux Gateway Airport")],
+    "how-airport-codes-are-assigned": [IATA_CODES, IATA_LOCATIONS, IATA_ARTICLE, wp("Location identifier")],
+    "why-us-airport-codes-avoid-n-k-w": [IATA_ARTICLE, wp("Location identifier"), wp("ICAO airport code")],
+    "airports-that-moved-their-code": [wp("Istanbul Airport"), wp("Atatürk Airport", "Atat%C3%BCrk_Airport"), wp("Suvarnabhumi Airport"), wp("Don Mueang International Airport"), IATA_SEARCH],
+    "city-codes-for-cities-with-several-airports": [IATA_CCD, wp("List of cities with more than one commercial airport"), IATA_ARTICLE],
+    "airports-named-after-people": [wp("List of airports named after people"), IATA_SEARCH],
+    "airline-codes-vs-airport-codes": [wp("Airline codes"), wp("Aviation call sign"), wp("Speedbird"), IATA_CODES],
+    "reading-your-bag-tag-and-boarding-pass": [wp("Bag tag"), wp("Boarding pass"), wp("Baggage handling system")],
+    "codes-from-local-names": [IATA_ARTICLE, IATA_SEARCH],
+    "airports-named-for-a-city-they-are-not-in": [wp("Brussels South Charleroi Airport"), wp("Milan Bergamo Airport", "Bergamo_Airport"), wp("List of cities with more than one commercial airport")],
+    "how-to-learn-airport-codes": [wp("Spacing effect"), IATA_SEARCH],
+}
+
+
 GUIDES = [
     {
         "slug": "why-canadian-airports-start-with-y",
@@ -45,7 +79,7 @@ GUIDES = [
         "body": """
 <p>Look at a Canadian boarding pass and you'll almost always see a Y. Toronto Pearson is {{YYZ}}, Vancouver is {{YVR}}, Montréal is {{YUL}}, Calgary is {{YYC}} and Ottawa is {{YOW}}. Edmonton ({{YEG}}), Winnipeg ({{YWG}}), Halifax ({{YHZ}}), Québec City ({{YQB}}) and Victoria ({{YYJ}}) follow the same rule. No other country uses a single letter so consistently, which makes Canada one of the easiest places to spot on a departures board and one of the hardest to tell apart.</p>
 <h2>Where the Y came from</h2>
-<p>The usual explanation goes back to the early days of radio. Canada gave its weather and radio stations two-letter identifiers. When three-letter airport codes became the standard, Canada added a Y in front of the old two letters, and the habit stuck. Historians differ on some of the details, including what the Y first stood for, but the result is clear: Y now means Canada almost everywhere you look.</p>
+<p>The usual explanation goes back to the early days of radio. Canada gave its weather and radio stations two-letter identifiers. When three-letter airport codes became the standard, Canada added a Y in front of the old two letters, and the habit stuck. One common account is that the Y marked a weather station that shared its site with an airport. Historians differ on the details, but the result is clear: Y now means Canada almost everywhere you look.</p>
 <p>The same idea carries over to the four-letter codes pilots use. Those are set by ICAO, and Canada's all begin with C, so Toronto Pearson is CYYZ and Vancouver is CYVR. You can read more about the two systems in our guide to <a href="/guides/iata-and-icao-codes">IATA and ICAO codes</a>.</p>
 <h2>Why the letters after the Y look random</h2>
 <p>Because the last two letters came from those old station identifiers, many don't match the city's name at all. That's why Toronto is YYZ and not something like YTO. YTO does exist, but as a city code that covers all of Toronto's airports, including the small Billy Bishop airport on the Toronto Islands, which is YTZ. Montréal has a city code too, YMQ.</p>
@@ -479,7 +513,7 @@ GUIDES = [
 <p>The biggest thing on a bag tag is the three-letter code of your final destination, printed large so baggage handlers can read it at a glance. If you're connecting, the tag also lists each stop, in order, often with the flight number for each leg.</p>
 <p><b>Check it before the bag disappears.</b> If you're flying to Portland, Oregon, the tag should say {{PDX}}, not PWM (Portland, Maine). If you're going to Sydney, Australia, it should say {{SYD}}. Mix-ups between similar codes do happen, and the agent's screen is the last chance to catch one.</p>
 <h2>The ten-digit number</h2>
-<p>Each tag carries a ten-digit number, sometimes called the licence plate. The first digit is usually 0, and the next three identify the airline that issued the tag, using a numeric airline code. British Airways is 125, for example. The last six digits identify your bag. You'll get a matching stub, often stuck to your boarding pass. Keep it: if your bag goes missing, that number is how the airline finds it.</p>
+<p>Each tag carries a ten-digit number, sometimes called the licence plate. The first digit is often 0, and the next three usually identify the airline that issued the tag, using its numeric airline code. British Airways is 125, for example. The last six digits identify your bag. You'll get a matching stub, often stuck to your boarding pass. Keep it: if your bag goes missing, that number is how the airline finds it.</p>
 <h2>The barcode</h2>
 <p>The barcode holds the same ten-digit number. Automated sorting systems scan it and look up where the bag should go, which is why the big printed code is mainly for people and the barcode does most of the work.</p>
 <h2>Your boarding pass</h2>
@@ -632,6 +666,15 @@ def head(title, desc, path, schema):
     return h.replace('href="/airports/" aria-current="page"', 'href="/airports/"')
 
 
+def sources_block(g):
+    items = "".join(f'<li><a href="{e(u)}" rel="noopener">{e(t)}</a></li>' for t, u in SOURCES[g["slug"]])
+    return (f'      <section class="guide-sources" aria-labelledby="sources-title">\n'
+            f'        <h2 id="sources-title">Sources</h2>\n'
+            f'        <ul>{items}</ul>\n'
+            f'        <p>Found a mistake? See <a href="/about#corrections">how we handle corrections</a>.</p>\n'
+            f'      </section>\n')
+
+
 def guide_page(g, codes):
     path = f"/guides/{g['slug']}"
     schema = schema_block({
@@ -661,6 +704,7 @@ def guide_page(g, codes):
     </section>
     <article class="wrap prose guide-body">
 {link_codes(g['body'], codes)}
+{sources_block(g)}
       <div class="panel guide-cta">
         <h2>Test yourself</h2>
         <p>Play today's <a href="/daily">Daily Departure</a>, or a round of <a href="/play">Quick Play</a>. Want all 1,000 codes? Get <a href="/airport-codes-quiz">Airport Codes Quiz</a>, free on iPhone.</p>
@@ -715,6 +759,7 @@ def update_sitemap():
 def main():
     codes = {a["code"] for a in load_airports()}
     slugs = {g["slug"] for g in GUIDES}
+    assert set(SOURCES) == slugs, f"sources missing or extra: {set(SOURCES) ^ slugs}"
     for g in GUIDES:
         for link in re.findall(r'href="/guides/([^"]+)"', g["body"]):
             assert link in slugs, f"{g['slug']}: links to missing guide {link}"
