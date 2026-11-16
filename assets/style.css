@@ -433,6 +433,10 @@ a:focus-visible, .badge:focus-visible {
   .site-nav .nav-link { display: none; }
   .site-nav .nav-link.nav-keep { display: inline; }
 }
+@media (max-width: 400px) {
+  .site-nav { gap: 14px; font-size: 0.9rem; }
+  .site-nav .nav-cta { padding: 8px 12px; }
+}
 
 @media (max-width: 480px) {
   .pass-main, .panel { padding: 22px; }
@@ -955,3 +959,5 @@ a.code-inline:hover { background: #16233a; }
 .home-guides .section-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 8px 20px; }
 .home-guides .section-title { margin-bottom: 24px; }
 .home-guides .section-head a { font-weight: 700; margin-bottom: 28px; }
+.guide-byline { margin: 14px 0 0; color: var(--on-navy); font-size: 0.92rem; }
+.guide-byline a { color: #fff; }
