@@ -964,3 +964,7 @@ a.code-inline:hover { background: #16233a; }
 .ap-guides { margin: 0; padding-left: 1.2em; }
 .ap-guides li { margin-bottom: 6px; }
 .app-more { margin-top: 8px; }
+.guide-sources { margin-top: 36px; font-size: 0.95rem; color: var(--ink-soft); }
+.guide-sources h2 { font-size: 1.1rem; margin: 0 0 8px; }
+.guide-sources ul { margin: 0 0 8px; }
+.guide-sources li { margin-bottom: 4px; }
