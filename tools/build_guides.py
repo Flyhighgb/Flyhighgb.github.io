@@ -646,7 +646,7 @@ GUIDES = [
 <h2>7. Test yourself in both directions</h2>
 <p>Knowing that {{CPT}} is Cape Town isn't the same as knowing Cape Town's code. Practise both ways: code to airport, and airport to code. Quick Play does both.</p>
 <h2>How far to go</h2>
-<p>For most people, the 100 busiest airports cover nearly every trip they'll take. Quiz fans can aim for a few hundred. If you want to go further, our <a href="/airport-codes-quiz">Airport Codes Quiz</a> app has 1,000 codes and a study mode.</p>
+<p>For most people, the 100 busiest airports cover nearly every trip they'll take. Quiz fans can aim for a few hundred. If you want to go further, our <a href="/airport-codes-quiz">Airport Codes Quiz</a> app has 1,000 codes, a Learn section and a list of your mistakes to review.</p>
 """,
     },
 ]
