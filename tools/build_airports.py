@@ -213,13 +213,21 @@ def letters_in_order(code, name):
 NOINDEX = '  <meta name="robots" content="noindex, follow">\n'
 
 
-def indexable(a):
-    """Only pages with a hand-written story go in the sitemap and search results.
+# Airport pages that go in the sitemap and search results: the ones whose story
+# is long and specific enough to stand as a page on its own. Every other page is
+# still built so players can open it, but marked noindex. When a story gets
+# longer and better, add its code here.
+INDEXED = {
+    "BCN", "BKK", "BOM", "BVA", "BWI", "CDG", "CVG", "DAL", "DEN", "DMK", "DSS",
+    "DTW", "EWR", "EZE", "FCO", "GMP", "GRU", "HKG", "HOU", "IAD", "ICN", "IST",
+    "ITM", "JFK", "JNB", "KEF", "KIX", "LAS", "LAX", "LGA", "LHR", "LYS", "MAD",
+    "MCI", "MDW", "MSY", "MUC", "NRT", "ORD", "ORY", "OSL", "PEK", "PKX", "PRG",
+    "PVG", "SAW", "SHA", "STL", "SYD", "TFN", "TFS", "TLV", "YYZ",
+}
 
-    Pages with just the automatic note are still built so players can open them,
-    but they're marked noindex: on their own they don't say enough to stand as a page.
-    """
-    return a["code"] in STORIES
+
+def indexable(a):
+    return a["code"] in INDEXED
 
 
 def why(a):
@@ -375,6 +383,16 @@ def quiz(a, airports, rng):
     return "\n".join(out)
 
 
+def related_guides(code):
+    """Guides that mention this code, as (slug, title)."""
+    try:
+        from build_guides import GUIDES
+    except ImportError:
+        return []
+    tag = "{{" + code + "}}"
+    return [(g["slug"], g["title"]) for g in GUIDES if tag in g["body"]][:3]
+
+
 def airport_page(a, airports):
     rng = random.Random(a["code"])
     code, name, country = a["code"], a["name"], a["country"]
@@ -439,6 +457,15 @@ def airport_page(a, airports):
         <section class="panel ap-panel">
           <h2>The story behind {code}</h2>
           <p>{e(story)}</p>
+        </section>
+""")
+    guides = related_guides(code)
+    if guides:
+        links = "".join(f'<li><a href="/guides/{slug}">{e(t)}</a></li>' for slug, t in guides)
+        parts.append(f"""
+        <section class="panel ap-panel">
+          <h2>Read more about {code}</h2>
+          <ul class="ap-guides">{links}</ul>
         </section>
 """)
     if looks:
@@ -541,6 +568,7 @@ def update_sitemap(airports):
 
 def main():
     airports = load_airports()
+    assert INDEXED <= set(STORIES), f"indexed without a story: {INDEXED - set(STORIES)}"
     codes = [a["code"] for a in airports]
     assert len(codes) == len(set(codes)), "duplicate airport code"
     OUT.mkdir(exist_ok=True)
