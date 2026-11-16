@@ -494,7 +494,7 @@ def airport_page(a, airports):
         <div class="panel ap-cta accent-sky">
           <p class="ap-cta-kicker">Free on iPhone</p>
           <h2>Know {code}? Try 999 more.</h2>
-          <p>Airport Codes Quiz has 50-question rounds, high scores and a study mode.</p>
+          <p>Airport Codes Quiz adds a Daily Challenge, Time Attack and Survival modes, and 1,000 codes.</p>
           <a class="ap-cta-btn" href="{APP_URL}">Get Airport Codes Quiz</a>
         </div>
         <div class="panel ap-cta">
