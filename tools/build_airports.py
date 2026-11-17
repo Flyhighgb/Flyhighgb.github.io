@@ -17,7 +17,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "airports"
-TODAY = "2026-11-16"
+TODAY = "2026-11-16"  # lastmod for the airport pages in sitemap.xml
+LIST_UPDATED = "2026-11-17"  # lastmod for /airports/ and /airports/all-codes
+IATA_JSON = ROOT / "assets" / "iata-codes.json"  # built by tools/build_iata_codes.py
 
 REGIONS = {
     "eu": "Europe",
@@ -512,7 +514,8 @@ def airport_page(a, airports):
 
 def index_page(airports):
     title = "Airport codes A–Z: what airport is that code? | Amateurgames1"
-    desc = f"Look up {len(airports)} major airport codes from LHR to JFK. Find the airport behind any three-letter IATA code, the story behind it and the codes people mix it up with."
+    total = f"{iata_count():,}"
+    desc = f"Look up any of {total} IATA airport codes. {len(airports)} major airports have their own page with the story behind the code and the codes people mix it up with."
     schema = schema_block({
         "@context": "https://schema.org",
         "@type": "CollectionPage",
@@ -526,11 +529,12 @@ def index_page(airports):
       <div class="wrap">
         <p class="eyebrow">Airports A&ndash;Z</p>
         <h1>What airport is that code?</h1>
-        <p class="lead">{len(airports)} airports, the story behind their codes, and the codes people mix them up with.</p>
+        <p class="lead">Search all {total} IATA airport codes. The {len(airports)} airports below have their own page, with the story behind the code and the codes people mix them up with.</p>
         <form class="ap-search" role="search" action="#" onsubmit="return false">
-          <label for="ap-filter">Search by code, airport or country</label>
+          <label for="ap-filter">Search by code, airport, city or country</label>
           <input id="ap-filter" type="search" placeholder="e.g. ORD, Toronto or Japan" autocomplete="off">
         </form>
+        <p class="ap-all-link"><a href="/airports/all-codes">Browse all {total} codes A&ndash;Z</a></p>
       </div>
     </section>
     <div class="wrap ap-index">
@@ -543,9 +547,15 @@ def index_page(airports):
             hay = e(f"{a['code']} {plain(a['name'])} {a['name']} {plain(a['country'])}".lower())
             parts.append(f'          <li data-search="{hay}"><a href="/airports/{a["code"].lower()}"><b>{a["code"]}</b><span>{e(a["name"])}<small>{e(a["country"])}</small></span></a></li>\n')
         parts.append("        </ul>\n      </section>\n")
-    parts.append("""      <section class="prose ap-about">
+    parts.append(f"""      <section class="ap-more" id="ap-more" hidden>
+        <h2>From the full list of IATA codes</h2>
+        <ul class="ap-list" id="ap-more-list"></ul>
+        <p class="ap-more-note" id="ap-more-note"></p>
+      </section>
+      <section class="prose ap-about">
         <h2>About airport codes</h2>
         <p>The three-letter codes on boarding passes and bag tags are IATA airport codes. Some spell out the name, like LHR for London Heathrow. Others come from an old name, like ORD for Chicago O'Hare, which was once Orchard Field. Each page explains the story where there is one.</p>
+        <p>Looking for a smaller airport? Our <a href="/airports/all-codes">full list of IATA codes</a> covers all {total} airports, airstrips, seaplane bases and heliports that have one.</p>
         <p>For the stories behind the strangest codes, read our <a href="/guides/">guides</a>. Want to test yourself? Try <a href="/daily">Daily Departure</a> or a round of <a href="/play">Quick Play</a>.</p>
       </section>
     </div>
@@ -555,11 +565,83 @@ def index_page(airports):
     return "".join(parts)
 
 
+def iata_count():
+    return len(json.loads(IATA_JSON.read_text(encoding="utf-8"))["codes"])
+
+
+def all_codes_page(airports):
+    """/airports/all-codes: every IATA code, searchable and by first letter.
+
+    The list itself is drawn in the browser from assets/iata-codes.json, so the
+    page stays small. Codes that have their own page link to it."""
+    data = json.loads(IATA_JSON.read_text(encoding="utf-8"))
+    total = f"{len(data['codes']):,}"
+    updated = date_words(data["updated"])
+    title = "All IATA airport codes A–Z: search every code | Amateurgames1"
+    desc = f"Search all {total} three-letter IATA airport codes by code, airport, city or country, or browse them by first letter. Free, no sign-up."
+    schema = schema_block({
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "All IATA airport codes",
+        "url": "https://amateurgames1.com/airports/all-codes",
+        "isPartOf": {"@type": "WebSite", "name": "Amateurgames1", "url": "https://amateurgames1.com/"},
+    }) + schema_block({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Airports A–Z", "item": "https://amateurgames1.com/airports/"},
+            {"@type": "ListItem", "position": 2, "name": "All IATA codes", "item": "https://amateurgames1.com/airports/all-codes"},
+        ],
+    })
+    with_pages = " ".join(sorted(a["code"] for a in airports))
+    letters = "".join(f'<a class="ac-letter" href="#{c}" data-letter="{c}">{c}</a>' for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+    parts = [HEAD.format(title=e(title), desc=e(desc), path="/airports/all-codes", schema=schema, robots="")]
+    parts.append(f"""
+  <main id="main">
+    <section class="hero ap-hero">
+      <div class="wrap">
+        <nav class="ap-crumbs" aria-label="Breadcrumb"><a href="/airports/">Airports A&ndash;Z</a> / All IATA codes</nav>
+        <h1>Every IATA airport code</h1>
+        <p class="lead">All {total} three-letter codes, from the world's biggest hubs to island airstrips and heliports. Search, or pick a first letter.</p>
+        <form class="ap-search" role="search" action="#" onsubmit="return false">
+          <label for="ac-q">Search by code, airport, city or country</label>
+          <input id="ac-q" type="search" placeholder="e.g. BHX, Kathmandu or Fiji" autocomplete="off">
+        </form>
+        <label class="ac-only"><input type="checkbox" id="ac-sched"> Only airports with airline flights</label>
+      </div>
+    </section>
+    <div class="wrap ap-index" id="ac" data-pages="{with_pages}">
+      <nav class="ac-letters" aria-label="First letter">{letters}</nav>
+      <p class="ac-status" id="ac-status" aria-live="polite">Loading the code list&hellip;</p>
+      <ul class="ap-list ac-list" id="ac-list"></ul>
+      <noscript><p>The code list needs JavaScript. You can still browse the <a href="/airports/">{len(airports)} airports with their own page</a>.</p></noscript>
+      <section class="prose ap-about">
+        <h2>About this list</h2>
+        <p>IATA, the International Air Transport Association, gives three-letter codes to airports with airline flights, and to many smaller fields, seaplane bases and heliports too. This list covers every place with a current IATA code. Airports tagged <span class="ac-tag">Full page</span> link to a page of their own with the story behind the code, the codes people mix them up with and a quick quiz.</p>
+        <p>A few codes cover a whole city rather than one airport, such as LON for London or NYC for New York. Booking sites use them to search several airports at once, so they aren't in this list of airports.</p>
+        <p>Airport data comes from <a href="https://ourairports.com/data/" rel="noopener">OurAirports</a>, a community project that puts its data in the public domain. Codes do change, and a list this long can have mistakes. Last updated {updated}. Spotted one? Email <a href="mailto:hello@amateurgames1.com">hello@amateurgames1.com</a>.</p>
+        <p>Want to learn the big ones? Try <a href="/daily">Daily Departure</a>, a round of <a href="/play">Quick Play</a> or the <a href="/airport-codes-quiz">Airport Codes Quiz</a> app.</p>
+      </section>
+    </div>
+  </main>
+""")
+    parts.append(FOOT.format(scripts='  <script src="/assets/all-codes.js" defer></script>\n'))
+    return "".join(parts)
+
+
+def date_words(iso):
+    y, m, d = (int(x) for x in iso.split("-"))
+    months = ["January", "February", "March", "April", "May", "June", "July",
+              "August", "September", "October", "November", "December"]
+    return f"{d} {months[m - 1]} {y}"
+
+
 def update_sitemap(airports):
     path = ROOT / "sitemap.xml"
     s = path.read_text(encoding="utf-8")
     s = re.sub(r"  <url><loc>https://amateurgames1\.com/airports/[^<]*</loc>[^\n]*\n", "", s)
-    lines = [f"  <url><loc>https://amateurgames1.com/airports/</loc><lastmod>{TODAY}</lastmod></url>\n"]
+    lines = [f"  <url><loc>https://amateurgames1.com/airports/</loc><lastmod>{LIST_UPDATED}</lastmod></url>\n",
+             f"  <url><loc>https://amateurgames1.com/airports/all-codes</loc><lastmod>{LIST_UPDATED}</lastmod></url>\n"]
     lines += [f"  <url><loc>https://amateurgames1.com/airports/{a['code'].lower()}</loc><lastmod>{TODAY}</lastmod></url>\n"
               for a in sorted(airports, key=lambda a: a["code"]) if indexable(a)]
     s = s.replace("</urlset>", "".join(lines) + "</urlset>")
@@ -577,6 +659,7 @@ def main():
     for a in airports:
         (OUT / f"{a['code'].lower()}.html").write_text(airport_page(a, airports), encoding="utf-8")
     (OUT / "index.html").write_text(index_page(airports), encoding="utf-8")
+    (OUT / "all-codes.html").write_text(all_codes_page(airports), encoding="utf-8")
     update_sitemap(airports)
     n = sum(indexable(a) for a in airports)
     print(f"Built {len(airports)} airport pages and the A-Z index ({n} indexable, {len(airports) - n} noindex).")
