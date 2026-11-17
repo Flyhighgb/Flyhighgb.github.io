@@ -743,12 +743,65 @@ a:focus-visible, .badge:focus-visible {
   color: var(--ink);
   text-decoration: none;
 }
+.ap-list .ap-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 60px;
+  padding: 8px 12px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--ink);
+}
 .ap-list a:hover { border-color: var(--navy); }
 .ap-list b { flex: none; min-width: 52px; text-align: center; padding: 4px 8px; border-radius: 6px; background: var(--navy); color: var(--yellow); font-family: var(--font-mono); font-weight: 800; }
 .ap-list span { display: flex; flex-direction: column; font-weight: 600; line-height: 1.3; }
 .ap-list small { font-weight: 400; color: var(--ink-soft); font-size: 0.82rem; }
 .ap-none { font-weight: 600; }
 .ap-about { margin: 24px 0 0; max-width: 760px; }
+
+/* Full IATA code list: /airports/all-codes and the extra results on /airports/ */
+.ap-all-link { margin: 14px 0 0; }
+.hero .ap-all-link a { color: var(--yellow); font-weight: 700; }
+.ap-more { margin-bottom: 36px; }
+.ap-more[hidden] { display: none; }
+.ap-more h2 { font-size: 1.5rem; margin: 0 0 14px; }
+.ap-more-note { margin: 12px 0 0; }
+.ac-only { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; color: var(--on-navy); font-size: 0.95rem; cursor: pointer; }
+.ac-only input { width: 18px; height: 18px; accent-color: var(--yellow); }
+.ac-letters { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.ac-letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--navy);
+  font-family: var(--font-mono);
+  font-weight: 800;
+  text-decoration: none;
+}
+.ac-letter:hover { border-color: var(--navy); }
+.ac-letter.is-on { background: var(--navy); color: var(--yellow); border-color: var(--navy); }
+.ac-status { font-weight: 600; margin: 0 0 14px; }
+.ac-list { margin-bottom: 40px; }
+.ac-list a { position: relative; }
+.ac-tag {
+  display: inline-block;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--yellow);
+  color: var(--navy);
+  font-size: 0.72rem;
+  font-style: normal;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.ac-list .ac-tag { margin-left: auto; flex: none; }
 
 /* Home page hub */
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
