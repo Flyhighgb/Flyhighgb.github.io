@@ -292,6 +292,7 @@ HEAD = """<!DOCTYPE html>
   <link rel="stylesheet" href="/assets/style.css">
   <!-- Google AdSense (Auto ads are placed by AdSense once the site is approved) -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3238867925400297" crossorigin="anonymous"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{{"token": "CF_WEB_ANALYTICS_TOKEN"}}'></script>
 {schema}</head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
