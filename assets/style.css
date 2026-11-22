@@ -307,6 +307,7 @@ a:focus-visible, .badge:focus-visible {
 .accent-sky { --card-accent: var(--sky); --dot: var(--sky); --stub: var(--sky-tint); --stub-line: #b9ddf5; }
 .accent-teal { --card-accent: var(--teal); --dot: var(--teal-ink); --stub: var(--teal-tint); --stub-line: #a8e3dc; }
 .accent-amber { --card-accent: var(--yellow); --dot: #d99a00; --stub: #fff7e0; --stub-line: #f3dc9b; }
+.accent-coral { --card-accent: #ff7a59; --dot: #e0552f; --stub: #fff0eb; --stub-line: #f7c6b7; }
 .app-icon {
   width: 84px;
   height: 84px;
@@ -363,6 +364,8 @@ a:focus-visible, .badge:focus-visible {
 .badge small { font-size: 0.72rem; letter-spacing: 0.01em; }
 .badge strong { font-size: 1.3rem; font-weight: 600; letter-spacing: -0.01em; }
 .badge:hover { background: #1c1c1e; }
+.badge-soon { cursor: default; opacity: 0.85; }
+.badge-soon:hover { background: #000; }
 
 /* App detail page */
 .detail {
